@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>プライバシーポリシーの作り方と設置方法</title>
+    <meta name="description" content="アクセス解析やAdSenseを使うブログに必要なプライバシーポリシーの内容と設置方法。">
+    <meta property="og:site_name" content="My Blog">
+    <meta property="og:title" content="プライバシーポリシーの作り方と設置方法">
+    <meta property="og:description" content="アクセス解析やAdSenseを使うブログに必要なプライバシーポリシーの内容と設置方法。">
+    <meta property="og:type" content="article">
+    <meta name="twitter:card" content="summary_large_image">
+    
+
+
+    
+    <link rel="stylesheet" href="../../static/css/style.css">
+</head>
+<body>
+    <header>
+        <a href="../../index.html" class="site-title">My Blog</a>
+        <nav><a href="../../search/index.html">検索</a></nav>
+    </header>
+    <main>
+        
+<article>
+    <header>
+        <h1>プライバシーポリシーの作り方と設置方法</h1>
+        <time datetime="2026-05-26">2026-05-26</time>
+        
+        <div class="tags">
+            
+            <a href="../../tags/%E9%81%8B%E5%96%B6/index.html" class="tag">運営</a>
+            
+        </div>
+        
+    </header>
+    <div class="content"><p>Google AnalyticsやGoogle AdSenseを使うブログにはプライバシーポリシーが必要だ。<a href="/posts/google-adsense-application/">AdSense申請</a>でも必須項目になっている。</p>
+<h2 id="_1">何を書けばいいか</h2>
+<p>最低限含める内容は以下の通り：</p>
+<ol>
+<li><strong>収集する情報</strong> — アクセスログ、Cookieなど</li>
+<li><strong>収集目的</strong> — アクセス解析、広告配信など</li>
+<li><strong>第三者サービス</strong> — Google Analytics、AdSenseを使っている旨</li>
+<li><strong>Cookieについて</strong> — 使用していること、無効化方法</li>
+<li><strong>お問い合わせ先</strong> — メールアドレスなど</li>
+</ol>
+<h2 id="_2">テンプレート</h2>
+<p>以下をベースに自分のサイトに合わせて編集する。</p>
+<hr />
+<p><strong>プライバシーポリシー</strong></p>
+<p>本ブログでは、アクセス解析ツールとしてGoogle Analyticsを使用しています。Google AnalyticsはCookieを使用してデータを収集しますが、個人を特定する情報は含まれません。収集されたデータはGoogleのプライバシーポリシーに基づいて管理されます。</p>
+<p>本ブログでは、広告配信サービスとしてGoogle AdSenseを使用しています。Googleはユーザーの興味に応じた広告を表示するためにCookieを使用します。Cookieを無効にするにはブラウザの設定から変更できます。</p>
+<p>本ブログに掲載している情報の正確性については万全を期しておりますが、内容を保証するものではありません。本ブログを利用したことによるいかなる損害についても責任を負いかねます。</p>
+<p>お問い合わせ: your-email@example.com</p>
+<hr />
+<h2 id="_3">このブログへの設置方法</h2>
+<p>プライバシーポリシーは固定ページとして <code>/privacy/</code> に設置するのが一般的。</p>
+<p><code>content/posts/</code> に <code>privacy.md</code> を作り、スラッグを <code>privacy</code> にする方法でも対応できる。より丁寧にやるなら <code>app.py</code> に固定ページ用のルートを追加する。</p>
+<h3 id="_4">簡易版：投稿として作成する</h3>
+<pre><code class="language-yaml">---
+title: プライバシーポリシー
+slug: privacy
+date: 2026-01-01
+draft: false
+---
+</code></pre>
+<p>フッターにリンクを追加しておくと、AdSense審査でも確認されやすい。</p>
+<h3 id="_5">フッターへのリンク追加</h3>
+<p><code>templates/base.html</code> のフッターを以下のように変更する：</p>
+<pre><code class="language-html">&lt;footer&gt;
+  &lt;p&gt;Generated with Flask-Frozen ·
+     &lt;a href=&quot;{{ url_for('post', slug='privacy') }}&quot;&gt;プライバシーポリシー&lt;/a&gt;
+  &lt;/p&gt;
+&lt;/footer&gt;
+</code></pre></div>
+    <footer>
+        <a href="../../index.html">← 一覧に戻る</a>
+    </footer>
+</article>
+
+    </main>
+    <footer>
+        <p>Generated with Flask-Frozen</p>
+    </footer>
+</body>
+</html>

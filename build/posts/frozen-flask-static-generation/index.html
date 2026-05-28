@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flask-Frozenが静的サイト生成に意外と向いている</title>
+    <meta name="description" content="Frozen-Flaskはフラスコアプリを丸ごと静的HTMLに変換する。Pythonで自由にロジックを書けるのが地味に強い。">
+    <meta property="og:site_name" content="My Blog">
+    <meta property="og:title" content="Flask-Frozenが静的サイト生成に意外と向いている">
+    <meta property="og:description" content="Frozen-Flaskはフラスコアプリを丸ごと静的HTMLに変換する。Pythonで自由にロジックを書けるのが地味に強い。">
+    <meta property="og:type" content="article">
+    <meta name="twitter:card" content="summary_large_image">
+    
+
+
+    
+    <link rel="stylesheet" href="../../static/css/style.css">
+</head>
+<body>
+    <header>
+        <a href="../../index.html" class="site-title">My Blog</a>
+        <nav><a href="../../search/index.html">検索</a></nav>
+    </header>
+    <main>
+        
+<article>
+    <header>
+        <h1>Flask-Frozenが静的サイト生成に意外と向いている</h1>
+        <time datetime="2026-05-13">2026-05-13</time>
+        
+        <div class="tags">
+            
+            <a href="../../tags/Flask/index.html" class="tag">Flask</a>
+            
+            <a href="../../tags/%E6%8A%80%E8%A1%93/index.html" class="tag">技術</a>
+            
+        </div>
+        
+    </header>
+    <div class="content"><p>静的サイトジェネレーターといえば Hugo、Jekyll、Eleventy あたりが有名だ。でも Python を普段使いしているなら Frozen-Flask は意外な選択肢になる。<a href="/posts/why-obsidian-flask-blog/">なぜこの構成を選んだか</a>も参照。</p>
+<h2 id="_1">仕組みはシンプル</h2>
+<p>Frozen-Flask（<code>flask-frozen</code>）は Flask アプリの全URLをクロールして、レスポンスをそのままHTMLファイルとして保存する。</p>
+<pre><code class="language-python">from flask_frozen import Freezer
+freezer = Freezer(app)
+freezer.freeze()  # これだけ
+</code></pre>
+<p><code>python freeze.py</code> を実行すると <code>build/</code> ディレクトリに静的HTMLが生成される。あとはそれをサーバーに置くだけ。</p>
+<h2 id="python">ロジックをPythonで書ける</h2>
+<p>Hugo や Jekyll では独自のテンプレート構文やショートコードを覚える必要がある。Flask なら Python のコードがそのまま動く。</p>
+<p>たとえばタグ別の記事一覧、関連記事の表示、記事数によるソート順の切り替え——これらを普通の Python 関数として書ける。フレームワーク固有の書き方を調べる時間がかからない。</p>
+<h2 id="_2">開発サーバーでリアルタイムプレビュー</h2>
+<p><code>python app.py</code> で起動したローカルサーバーは通常の Flask アプリとして動く。ファイルを変更すると自動でリロードされる。書きながらブラウザで確認するサイクルが速い。</p>
+<p>本番用のビルドと開発用のプレビューが同じコードベースなので、「ローカルでは動いたのに本番で崩れた」が起きにくい。</p>
+<h2 id="_3">向いているもの・向いていないもの</h2>
+<p>静的サイトなので、コメントやリアルタイム更新には向かない。でもブログはそもそも静的でいい。読まれるだけのコンテンツに動的な仕組みは不要だ。</p>
+<p>ページ数が数万を超えるようなサイトではビルド時間が問題になるかもしれないが、個人ブログのスケールなら気にならない。生成した静的ファイルは<a href="/posts/free-hosting-cloudflare-pages/">Cloudflare Pagesで無料でホストできる</a>。</p></div>
+    <footer>
+        <a href="../../index.html">← 一覧に戻る</a>
+    </footer>
+</article>
+
+    </main>
+    <footer>
+        <p>Generated with Flask-Frozen</p>
+    </footer>
+</body>
+</html>

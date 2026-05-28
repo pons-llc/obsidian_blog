@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cloudflareでカスタムドメインを設定する</title>
+    <meta name="description" content="Cloudflare Pagesに独自ドメインを設定する手順。DNS設定からSSL証明書の自動発行まで無料でできる。">
+    <meta property="og:site_name" content="My Blog">
+    <meta property="og:title" content="Cloudflareでカスタムドメインを設定する">
+    <meta property="og:description" content="Cloudflare Pagesに独自ドメインを設定する手順。DNS設定からSSL証明書の自動発行まで無料でできる。">
+    <meta property="og:type" content="article">
+    <meta name="twitter:card" content="summary_large_image">
+    
+
+
+    
+    <link rel="stylesheet" href="../../static/css/style.css">
+</head>
+<body>
+    <header>
+        <a href="../../index.html" class="site-title">My Blog</a>
+        <nav><a href="../../search/index.html">検索</a></nav>
+    </header>
+    <main>
+        
+<article>
+    <header>
+        <h1>Cloudflareでカスタムドメインを設定する</h1>
+        <time datetime="2026-05-25">2026-05-25</time>
+        
+        <div class="tags">
+            
+            <a href="../../tags/%E3%83%87%E3%83%97%E3%83%AD%E3%82%A4/index.html" class="tag">デプロイ</a>
+            
+            <a href="../../tags/Cloudflare/index.html" class="tag">Cloudflare</a>
+            
+        </div>
+        
+    </header>
+    <div class="content"><p><a href="/posts/free-hosting-cloudflare-pages/">Cloudflare Pagesでブログを公開</a>したら、次は独自ドメインを設定したい。手順は少なく、SSL証明書も自動で発行される。</p>
+<h2 id="_1">必要なもの</h2>
+<ul>
+<li>取得済みのドメイン（お名前.com、Cloudflare Registrar、Namecheapなど）</li>
+<li>Cloudflare Pagesにデプロイ済みのブログ</li>
+</ul>
+<h2 id="_2">手順</h2>
+<h3 id="1-cloudflare-pages">1. Cloudflare Pagesの管理画面を開く</h3>
+<p>対象のプロジェクトを選び、「Custom domains」タブを開く。
+「Set up a custom domain」をクリックしてドメインを入力する。</p>
+<h3 id="2-dns">2. DNSを設定する</h3>
+<p>ドメインをどこで管理しているかによって設定方法が変わる。</p>
+<p><strong>Cloudflareでドメインを管理している場合（推奨）</strong></p>
+<p>Cloudflareが自動的にDNSレコードを追加してくれる。確認して有効化するだけ。</p>
+<p><strong>他のレジストラでドメインを管理している場合</strong></p>
+<p>CNAMEレコードを追加する：</p>
+<table>
+<thead>
+<tr>
+<th>種別</th>
+<th>名前</th>
+<th>値</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CNAME</td>
+<td><code>@</code> または <code>www</code></td>
+<td><code>&lt;project&gt;.pages.dev</code></td>
+</tr>
+</tbody>
+</table>
+<p>ルートドメイン（<code>example.com</code>）にCNAMEが設定できないレジストラの場合は、ネームサーバーをCloudflareに移管するのが最もスムーズ。</p>
+<h3 id="3-ssl">3. SSL証明書の発行を待つ</h3>
+<p>DNS設定が反映されると（数分〜24時間）、Cloudflareが自動的にSSL証明書を発行する。
+ステータスが「Active」になれば完了。</p>
+<h2 id="site_url">SITE_URLを更新する</h2>
+<p>カスタムドメインが有効になったら、Cloudflare Pagesのビルド設定で環境変数を更新する。</p>
+<pre><code>SITE_URL = https://yourdomain.com
+</code></pre>
+<p>次のビルド時から、OGP画像のURLやsitemapに正しいドメインが反映される。</p>
+<h2 id="www">www ありとなし</h2>
+<p><code>www.yourdomain.com</code> と <code>yourdomain.com</code> の両方を設定できる。どちらをメインにするかを決めて、もう一方はリダイレクトに設定すると良い。Cloudflare Pagesは両方設定しておけば自動でどちらも処理してくれる。</p></div>
+    <footer>
+        <a href="../../index.html">← 一覧に戻る</a>
+    </footer>
+</article>
+
+    </main>
+    <footer>
+        <p>Generated with Flask-Frozen</p>
+    </footer>
+</body>
+</html>

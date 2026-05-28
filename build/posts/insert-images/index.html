@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>記事に画像を挿入する方法</title>
+    <meta name="description" content="Obsidianで画像を貼り付けてブログに表示する方法。assets/フォルダの使い方と凍結時の注意点。">
+    <meta property="og:site_name" content="My Blog">
+    <meta property="og:title" content="記事に画像を挿入する方法">
+    <meta property="og:description" content="Obsidianで画像を貼り付けてブログに表示する方法。assets/フォルダの使い方と凍結時の注意点。">
+    <meta property="og:type" content="article">
+    <meta name="twitter:card" content="summary_large_image">
+    
+
+
+    
+    <link rel="stylesheet" href="../../static/css/style.css">
+</head>
+<body>
+    <header>
+        <a href="../../index.html" class="site-title">My Blog</a>
+        <nav><a href="../../search/index.html">検索</a></nav>
+    </header>
+    <main>
+        
+<article>
+    <header>
+        <h1>記事に画像を挿入する方法</h1>
+        <time datetime="2026-05-28">2026-05-28</time>
+        
+        <div class="tags">
+            
+            <a href="../../tags/%E5%9F%B7%E7%AD%86/index.html" class="tag">執筆</a>
+            
+            <a href="../../tags/Obsidian/index.html" class="tag">Obsidian</a>
+            
+        </div>
+        
+    </header>
+    <div class="content"><p><a href="/posts/obsidian-as-cms/">Obsidianで記事を書いていると</a>、スクリーンショットや図を貼りたくなる。vault の設定では添付ファイルが <code>assets/</code> に保存されるようになっているので、そのまま使える。</p>
+<h2 id="obsidian">Obsidianでの画像の貼り付け</h2>
+<p>画像ファイルをObsidianのエディタにドラッグ&amp;ドロップするか、クリップボードにコピーした画像を <code>Cmd+V</code> で貼り付けると <code>content/assets/</code> に自動保存される。</p>
+<p>Obsidian上では以下のようなwikilink形式で参照される：</p>
+<pre><code>![スクリーンショット 2026-05-28.png](/posts/スクリーンショット 2026-05-28.png/)
+</code></pre>
+<h2 id="_1">ブログ記事での書き方</h2>
+<p>ブログのHTMLとして出力するには、通常のMarkdown画像記法で書く：</p>
+<pre><code class="language-markdown">![説明テキスト](/assets/スクリーンショット.png)
+</code></pre>
+<p>Obsidianの <code>![...](/posts/.../)</code> 記法はHTMLに変換されないため、ブログ用には <code>![alt](/assets/filename.png)</code> の形式を使う。Obsidianのプレビューでも両方表示されるので、慣れたらどちらを使っても問題ない。</p>
+<h2 id="_2">画像の最適化</h2>
+<p>ファイルサイズが大きい画像はページ速度に影響する。貼り付け前に圧縮しておくと良い。</p>
+<ul>
+<li><strong>macOS</strong>: プレビューアプリで「書き出す」→ファイルサイズを指定</li>
+<li><strong>コマンドライン</strong>: <code>sips -Z 1200 image.png</code>（長辺を1200pxに）</li>
+<li><strong>WebP変換</strong>: <code>ffmpeg -i input.png output.webp</code> でさらに軽量化できる</li>
+</ul>
+<h2 id="_3">代替テキストを書く</h2>
+<p><code>![代替テキスト](/assets/image.png)</code> の「代替テキスト」部分はSEOとアクセシビリティに影響する。画像の内容を端的に説明する文章を書くこと。空にしてはいけない。</p></div>
+    <footer>
+        <a href="../../index.html">← 一覧に戻る</a>
+    </footer>
+</article>
+
+    </main>
+    <footer>
+        <p>Generated with Flask-Frozen</p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ブログを初期化する</title>
+    <meta name="description" content="このテンプレートを使ってブログを立ち上げる手順。Obsidianの設定からローカルプレビューまで。">
+    <meta property="og:site_name" content="My Blog">
+    <meta property="og:title" content="ブログを初期化する">
+    <meta property="og:description" content="このテンプレートを使ってブログを立ち上げる手順。Obsidianの設定からローカルプレビューまで。">
+    <meta property="og:type" content="article">
+    <meta name="twitter:card" content="summary_large_image">
+    
+
+
+    
+    <link rel="stylesheet" href="../../static/css/style.css">
+</head>
+<body>
+    <header>
+        <a href="../../index.html" class="site-title">My Blog</a>
+        <nav><a href="../../search/index.html">検索</a></nav>
+    </header>
+    <main>
+        
+<article>
+    <header>
+        <h1>ブログを初期化する</h1>
+        <time datetime="2026-04-28">2026-04-28</time>
+        
+        <div class="tags">
+            
+            <a href="../../tags/%E3%82%BB%E3%83%83%E3%83%88%E3%82%A2%E3%83%83%E3%83%97/index.html" class="tag">セットアップ</a>
+            
+        </div>
+        
+    </header>
+    <div class="content"><p>このテンプレートを使ってブログを始めるまでの手順をまとめる。所要時間は15分ほど。</p>
+<h2 id="_1">必要なもの</h2>
+<ul>
+<li><strong>Python 3.11以上</strong> — Flask を動かすために必要</li>
+<li><strong>uv</strong> — パッケージ管理。<code>brew install uv</code> でインストール</li>
+<li><strong>Obsidian</strong> — 記事を書くエディタ。無料で使える</li>
+<li><strong>Git</strong> — バージョン管理とデプロイに使う</li>
+</ul>
+<h2 id="1">1. テンプレートを取得する</h2>
+<p>GitHubのテンプレートリポジトリから自分のリポジトリを作成する。</p>
+<ol>
+<li>GitHubの「Use this template」ボタンをクリック</li>
+<li>リポジトリ名を入力（例: <code>myblog</code>）</li>
+<li><code>git clone</code> でローカルに取得</li>
+</ol>
+<pre><code class="language-bash">git clone https://github.com/yourname/myblog.git
+cd myblog
+</code></pre>
+<h2 id="2">2. 依存パッケージをインストールする</h2>
+<pre><code class="language-bash">uv venv
+uv pip install -r requirements.txt
+</code></pre>
+<h2 id="3-obsidianvault">3. ObsidianでVaultを開く</h2>
+<p>Obsidianを起動し、「別のVaultを開く」→「フォルダをVaultとして開く」から <code>content/</code> フォルダを選択する。</p>
+<p>これだけで以下の設定が有効になる：</p>
+<ul>
+<li>新規ノートの保存先 → <code>posts/</code></li>
+<li>添付ファイルの保存先 → <code>assets/</code></li>
+<li>テンプレートフォルダ → <code>templates/</code></li>
+</ul>
+<h2 id="4">4. ローカルで起動する</h2>
+<pre><code class="language-bash">uv run python app.py
+</code></pre>
+<p><code>http://localhost:5000</code> をブラウザで開くとブログが表示される。</p>
+<h2 id="5">5. 最初の記事を書く</h2>
+<p>Obsidianでコマンドパレット（<code>Cmd+P</code>）を開き、「テンプレートの挿入」→「新規投稿」を選択する。フロントマターが自動で入力されるので、タイトルとsummaryを書いて記事を書き始めればいい。</p>
+<p><a href="/posts/obsidian-as-cms/">Obsidianの使い方の詳細</a>はこちら。</p>
+<h2 id="6">6. サイト名を変更する</h2>
+<p>デフォルトのサイト名は「My Blog」。変更するには環境変数で渡す：</p>
+<pre><code class="language-bash">SITE_NAME=&quot;自分のブログ名&quot; uv run python app.py
+</code></pre>
+<p>デプロイ時は <a href="/posts/free-hosting-cloudflare-pages/">Cloudflare Pages の環境変数</a> に設定する。</p>
+<h2 id="_2">次のステップ</h2>
+<ul>
+<li><a href="/posts/why-obsidian-flask-blog/">この構成の設計思想を読む</a></li>
+<li><a href="/posts/claude-code-skills-for-blog/">Claude Code スキルで記事管理を自動化する</a></li>
+<li><a href="/posts/free-hosting-cloudflare-pages/">GitHub + Cloudflare Pages にデプロイする</a></li>
+</ul></div>
+    <footer>
+        <a href="../../index.html">← 一覧に戻る</a>
+    </footer>
+</article>
+
+    </main>
+    <footer>
+        <p>Generated with Flask-Frozen</p>
+    </footer>
+</body>
+</html>

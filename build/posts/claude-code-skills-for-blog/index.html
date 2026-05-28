@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Claude CodeのスキルでブログをAIアシスタントと一緒に管理する</title>
+    <meta name="description" content="/blog と /design の2つのスキルで、記事作成からデザイン変更まで会話しながら進められる。">
+    <meta property="og:site_name" content="My Blog">
+    <meta property="og:title" content="Claude CodeのスキルでブログをAIアシスタントと一緒に管理する">
+    <meta property="og:description" content="/blog と /design の2つのスキルで、記事作成からデザイン変更まで会話しながら進められる。">
+    <meta property="og:type" content="article">
+    <meta name="twitter:card" content="summary_large_image">
+    
+
+
+    
+    <link rel="stylesheet" href="../../static/css/style.css">
+</head>
+<body>
+    <header>
+        <a href="../../index.html" class="site-title">My Blog</a>
+        <nav><a href="../../search/index.html">検索</a></nav>
+    </header>
+    <main>
+        
+<article>
+    <header>
+        <h1>Claude CodeのスキルでブログをAIアシスタントと一緒に管理する</h1>
+        <time datetime="2026-05-19">2026-05-19</time>
+        
+        <div class="tags">
+            
+            <a href="../../tags/ClaudeCode/index.html" class="tag">ClaudeCode</a>
+            
+            <a href="../../tags/AI/index.html" class="tag">AI</a>
+            
+            <a href="../../tags/%E5%9F%B7%E7%AD%86/index.html" class="tag">執筆</a>
+            
+        </div>
+        
+    </header>
+    <div class="content"><p>このブログには Claude Code のスキルが2つ組み込まれている。<a href="/posts/why-obsidian-flask-blog/">ブログ全体の構成</a>はこちら。</p>
+<p>スキルとは、よく使う作業手順を Claude Code に覚えさせたもの。プロジェクトルートで Claude Code を開いてスキル名を呼ぶと、そのワークフローに沿って作業を進めてくれる。</p>
+<h2 id="blog"><code>/blog</code> — 投稿を会話で作る</h2>
+<pre><code>/blog 新しい記事を書きたい
+</code></pre>
+<p>と呼ぶと、タイトルを確認してフロントマター付きの Markdown ファイルを自動で作ってくれる。スラッグの生成、今日の日付の入力、テンプレートの適用——これらをすべてやってくれるので、自分はすぐ本文を書き始められる。</p>
+<pre><code>/blog ビルドして
+/blog 下書き一覧を見せて
+</code></pre>
+<p>のように、ビルドや投稿管理の作業も任せられる。</p>
+<h2 id="design"><code>/design</code> — デザインを会話で決める</h2>
+<pre><code>/design
+</code></pre>
+<p>と呼ぶと、ブログの用途・雰囲気・カラー・フォントについて聞いてくれる。答えるだけで <code>style.css</code> を書き換えてくれて、プレビューサーバーを立ち上げて確認できる。</p>
+<p>「もっと余白を増やして」「アクセントカラーをオレンジにして」と追加で伝えると、その場で修正してくれる。CSSを手で書かなくていい。</p>
+<h2 id="_1">スキルはプロジェクトに同梱されている</h2>
+<p>スキルのファイルは <code>.claude/skills/</code> に入っている。つまりリポジトリを clone した人全員が同じスキルを使える。チームでブログを運営するときも、全員が同じ操作体験で作業できる。</p>
+<hr />
+<p>AIとのコラボレーションを「チャットで質問する」だけで終わらせず、ワークフロー自体に組み込む。そのための仕組みがスキルだと思っている。記事は<a href="/posts/obsidian-as-cms/">Obsidian</a>で書き、<a href="/posts/free-hosting-cloudflare-pages/">Cloudflare Pagesでデプロイ</a>する。</p></div>
+    <footer>
+        <a href="../../index.html">← 一覧に戻る</a>
+    </footer>
+</article>
+
+    </main>
+    <footer>
+        <p>Generated with Flask-Frozen</p>
+    </footer>
+</body>
+</html>

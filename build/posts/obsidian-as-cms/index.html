@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ObsidianをCMSとして使う</title>
+    <meta name="description" content="Obsidianのプロパティ・テンプレート・グラフビューをブログ管理に活かす方法。">
+    <meta property="og:site_name" content="My Blog">
+    <meta property="og:title" content="ObsidianをCMSとして使う">
+    <meta property="og:description" content="Obsidianのプロパティ・テンプレート・グラフビューをブログ管理に活かす方法。">
+    <meta property="og:type" content="article">
+    <meta name="twitter:card" content="summary_large_image">
+    
+
+
+    
+    <link rel="stylesheet" href="../../static/css/style.css">
+</head>
+<body>
+    <header>
+        <a href="../../index.html" class="site-title">My Blog</a>
+        <nav><a href="../../search/index.html">検索</a></nav>
+    </header>
+    <main>
+        
+<article>
+    <header>
+        <h1>ObsidianをCMSとして使う</h1>
+        <time datetime="2026-05-08">2026-05-08</time>
+        
+        <div class="tags">
+            
+            <a href="../../tags/Obsidian/index.html" class="tag">Obsidian</a>
+            
+            <a href="../../tags/%E5%9F%B7%E7%AD%86/index.html" class="tag">執筆</a>
+            
+        </div>
+        
+    </header>
+    <div class="content"><p>このブログの「CMS」はObsidianだ。管理画面はないし、データベースもない。あるのは <code>content/</code> フォルダだけ。でもそれで十分機能する。<a href="/posts/why-obsidian-flask-blog/">この構成を選んだ理由</a>はこちら。</p>
+<h2 id="_1">プロパティパネルでメタデータを管理</h2>
+<p>各記事のフロントマター（タイトル・日付・タグ・下書きフラグ）はObsidianのプロパティパネルで編集できる。YAMLを手書きしなくていい。</p>
+<p><code>draft: true</code> にするだけで記事が非公開になる。書きかけの記事をObsidian上で普通に管理しておける。</p>
+<p><img alt="Obsidianのプロパティパネルと記事一覧" src="/assets/obsidian_content_image.png" /></p>
+<h2 id="_2">テンプレートで書き出しを揃える</h2>
+<p>「テンプレートの挿入」コマンドを使うと、新しいファイルに以下が自動で入力される。</p>
+<pre><code class="language-yaml">---
+title: {{title}}
+date: {{date:YYYY-MM-DD}}
+tags:
+  - 
+summary: 
+draft: false
+---
+</code></pre>
+<p>毎回フォーマットを思い出さなくていいし、日付の入力ミスもない。</p>
+<h2 id="_3">グラフビューで記事の関連を把握する</h2>
+<p>記事内で <code>[別の記事](/posts/別の記事/)</code> と書くとグラフビューに繋がりが表示される。書いているうちに「この記事とこの記事は同じテーマを扱っている」という気づきが生まれる。</p>
+<p>実際のHTMLリンクには通常の <code>[テキスト](../slug/)</code> を使うが、Obsidian上での整理にwikilinkを使い、書き終わったら正式なリンクに変換する、というフローが自分にはあっている。</p>
+<p><img alt="Obsidianのグラフビュー。記事間のwikiリンクが可視化されている" src="/assets/obsidian_graph_image.png" /></p>
+<h2 id="_4">ローカルで完結する安心感</h2>
+<p>ネットが繋がっていなくても書ける。エディタがいつでも自分の手元にある。これだけで書く気が全然違う。記事の新規作成は<a href="/posts/claude-code-skills-for-blog/">Claude Codeのスキル</a>に任せることも多い。</p></div>
+    <footer>
+        <a href="../../index.html">← 一覧に戻る</a>
+    </footer>
+</article>
+
+    </main>
+    <footer>
+        <p>Generated with Flask-Frozen</p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ObsidianとFlask-Frozenでブログを作った理由</title>
+    <meta name="description" content="WordPressでも静的サイトジェネレーターでもなく、ObsidianとFlask-Frozenの組み合わせを選んだ理由を整理した。">
+    <meta property="og:site_name" content="My Blog">
+    <meta property="og:title" content="ObsidianとFlask-Frozenでブログを作った理由">
+    <meta property="og:description" content="WordPressでも静的サイトジェネレーターでもなく、ObsidianとFlask-Frozenの組み合わせを選んだ理由を整理した。">
+    <meta property="og:type" content="article">
+    <meta name="twitter:card" content="summary_large_image">
+    
+
+
+    
+    <link rel="stylesheet" href="../../static/css/style.css">
+</head>
+<body>
+    <header>
+        <a href="../../index.html" class="site-title">My Blog</a>
+        <nav><a href="../../search/index.html">検索</a></nav>
+    </header>
+    <main>
+        
+<article>
+    <header>
+        <h1>ObsidianとFlask-Frozenでブログを作った理由</h1>
+        <time datetime="2026-05-01">2026-05-01</time>
+        
+        <div class="tags">
+            
+            <a href="../../tags/%E3%83%96%E3%83%AD%E3%82%B0/index.html" class="tag">ブログ</a>
+            
+            <a href="../../tags/%E6%A7%8B%E6%88%90/index.html" class="tag">構成</a>
+            
+        </div>
+        
+    </header>
+    <div class="content"><p>ブログを始めようと思ったとき、選択肢はたくさんある。WordPressのような動的CMS、HugoやJekyllのような静的サイトジェネレーター、あるいはNotionやSubstackのようなサービス。</p>
+<p>なぜこの構成にしたかを一言で言うと、<strong>書くこととデプロイすることを完全に分離したかった</strong>から。</p>
+<h2 id="_1">書く環境にこだわりたかった</h2>
+<p>Obsidianは現在もっとも使い込んでいるツールだ。日々のメモ、アイデアの整理、読書ノート。ノートを書く環境としてはすでに最高の状態になっている。</p>
+<p>ブログもそこで書けるなら、新しいエディタに慣れる必要がない。記事のアイデアが日常のメモから自然に育っていく。<a href="/posts/obsidian-as-cms/">ObsidianをCMSとして使う方法</a>はまた別に書いた。</p>
+<h2 id="markdown">Markdownファイルがそのまま資産になる</h2>
+<p>WordPressはデータベースにコンテンツが閉じ込められる。サービス依存のブログはプラットフォームが変わると消える。</p>
+<p>このブログの記事は全部 <code>content/posts/</code> の <code>.md</code> ファイルだ。Git管理できるし、エディタを変えてもそのまま使える。10年後もファイルとして手元に残る。</p>
+<h2 id="flask-frozenpython">Flask-Frozenで「普通のPythonコード」として扱える</h2>
+<p>HugoやJekyllは独自のテンプレートエンジンや設定ファイルを覚える必要がある。Flask-Frozenはただのフラスコアプリをフリーズするだけ。Pythonを知っていれば、ロジックを自由に書ける。</p>
+<p>タグ一覧のソート順を変えたい、特定のカテゴリだけRSSを出したい。そういうカスタマイズがPythonのコードとして書けるのは大きい。<a href="/posts/frozen-flask-static-generation/">Flask-Frozenの詳細</a>はこちら。</p>
+<hr />
+<p>完璧な構成ではないかもしれないが、自分の使い方に素直に合わせた結果がこれだ。ホスティングは<a href="/posts/free-hosting-cloudflare-pages/">GitHub + Cloudflare Pages</a>で無料で運用している。記事の作成やデザイン変更は<a href="/posts/claude-code-skills-for-blog/">Claude Codeのスキル</a>で行っている。</p></div>
+    <footer>
+        <a href="../../index.html">← 一覧に戻る</a>
+    </footer>
+</article>
+
+    </main>
+    <footer>
+        <p>Generated with Flask-Frozen</p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>検索 — My Blog</title>
+    <meta name="description" content="">
+    <meta property="og:site_name" content="My Blog">
+    <meta property="og:title" content="My Blog">
+    <meta property="og:description" content="">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    
+    
+    <link rel="stylesheet" href="../static/css/style.css">
+</head>
+<body>
+    <header>
+        <a href="../index.html" class="site-title">My Blog</a>
+        <nav><a href="index.html">検索</a></nav>
+    </header>
+    <main>
+        
+<div id="search-app" data-index-url="../search-index.json">
+    <h1>検索</h1>
+    <div class="search-form">
+        <input type="text" id="search-input" placeholder="キーワードを入力..." autofocus>
+        <button id="search-button">検索</button>
+    </div>
+    <p id="search-status"></p>
+    <div id="search-results"></div>
+</div>
+<script src="../static/js/search.js"></script>
+
+    </main>
+    <footer>
+        <p>Generated with Flask-Frozen</p>
+    </footer>
+</body>
+</html>

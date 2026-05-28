@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GitHub + Cloudflare Pagesで無料ホスティング</title>
+    <meta name="description" content="GitHubにpushするだけで自動ビルド・デプロイ。Cloudflare Pagesなら帯域無制限・無料で運用できる。">
+    <meta property="og:site_name" content="My Blog">
+    <meta property="og:title" content="GitHub + Cloudflare Pagesで無料ホスティング">
+    <meta property="og:description" content="GitHubにpushするだけで自動ビルド・デプロイ。Cloudflare Pagesなら帯域無制限・無料で運用できる。">
+    <meta property="og:type" content="article">
+    <meta name="twitter:card" content="summary_large_image">
+    
+
+
+    
+    <link rel="stylesheet" href="../../static/css/style.css">
+</head>
+<body>
+    <header>
+        <a href="../../index.html" class="site-title">My Blog</a>
+        <nav><a href="../../search/index.html">検索</a></nav>
+    </header>
+    <main>
+        
+<article>
+    <header>
+        <h1>GitHub + Cloudflare Pagesで無料ホスティング</h1>
+        <time datetime="2026-05-24">2026-05-24</time>
+        
+        <div class="tags">
+            
+            <a href="../../tags/%E3%83%87%E3%83%97%E3%83%AD%E3%82%A4/index.html" class="tag">デプロイ</a>
+            
+            <a href="../../tags/Cloudflare/index.html" class="tag">Cloudflare</a>
+            
+        </div>
+        
+    </header>
+    <div class="content"><p>静的サイトのホスティングには Cloudflare Pages を使っている。無料で使えて、速くて、設定が少ない。<a href="/posts/frozen-flask-static-generation/">Flask-Frozenで生成した</a>静的ファイルをそのままデプロイできる。</p>
+<h2 id="3">設定は3ステップ</h2>
+<ol>
+<li>GitHub にリポジトリを作って push する</li>
+<li>Cloudflare Pages で「Connect to Git」でリポジトリを選ぶ</li>
+<li>ビルド設定を入力する：</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>項目</th>
+<th>値</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Build command</td>
+<td><code>pip install -r requirements.txt &amp;&amp; python freeze.py</code></td>
+</tr>
+<tr>
+<td>Output directory</td>
+<td><code>build</code></td>
+</tr>
+<tr>
+<td>環境変数 <code>SITE_URL</code></td>
+<td><code>https://&lt;project&gt;.pages.dev</code></td>
+</tr>
+</tbody>
+</table>
+<p>以上。<code>main</code> ブランチへの push が自動でビルドとデプロイをトリガーする。</p>
+<h2 id="_1">無料でここまでできる</h2>
+<ul>
+<li><strong>帯域無制限</strong>（Netlify は月100GBまで）</li>
+<li><strong>毎月500ビルド</strong>（個人ブログには十分すぎる）</li>
+<li><strong>カスタムドメイン</strong>（SSL証明書も自動）</li>
+<li><strong>Cloudflare のCDN</strong>（世界中のエッジから配信）</li>
+</ul>
+<p>個人ブログを運用するのにお金がかからない。この構成でコストがかかるのはドメイン代だけだ。</p>
+<h2 id="ogp">OGP画像もビルド時に自動生成される</h2>
+<p><code>python freeze.py</code> を実行すると、記事のタイトルと概要から OGP 画像（1200×630px）が自動生成される。SNS でシェアされたときに記事ごとのサムネイルが表示される。</p>
+<p>Cloudflare Pages のビルドで <code>SITE_URL</code> を環境変数に設定しておけば、OGP タグに絶対 URL が埋め込まれてシェア時に正しく機能する。</p>
+<h2 id="obsidian-github-cloudflare">Obsidian → GitHub → Cloudflare の流れ</h2>
+<ol>
+<li>Obsidian で記事を書く</li>
+<li><code>git commit &amp;&amp; git push</code></li>
+<li>Cloudflare Pages が自動でビルド・デプロイ</li>
+</ol>
+<p>記事の公開にかかる手動作業は git push だけ。記事の作成は<a href="/posts/obsidian-as-cms/">Obsidian</a>で、<a href="/posts/claude-code-skills-for-blog/">Claude Codeのスキル</a>でサポートしてもらっている。</p></div>
+    <footer>
+        <a href="../../index.html">← 一覧に戻る</a>
+    </footer>
+</article>
+
+    </main>
+    <footer>
+        <p>Generated with Flask-Frozen</p>
+    </footer>
+</body>
+</html>

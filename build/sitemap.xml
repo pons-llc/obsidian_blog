@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>/</loc></url>
+  <url><loc>/posts/getting-started/</loc><lastmod>2026-04-28</lastmod></url>
+  <url><loc>/posts/why-obsidian-flask-blog/</loc><lastmod>2026-05-01</lastmod></url>
+  <url><loc>/posts/obsidian-as-cms/</loc><lastmod>2026-05-08</lastmod></url>
+  <url><loc>/posts/frozen-flask-static-generation/</loc><lastmod>2026-05-13</lastmod></url>
+  <url><loc>/posts/claude-code-skills-for-blog/</loc><lastmod>2026-05-19</lastmod></url>
+  <url><loc>/posts/free-hosting-cloudflare-pages/</loc><lastmod>2026-05-24</lastmod></url>
+  <url><loc>/posts/custom-domain-cloudflare/</loc><lastmod>2026-05-25</lastmod></url>
+  <url><loc>/posts/privacy-policy-setup/</loc><lastmod>2026-05-26</lastmod></url>
+  <url><loc>/posts/google-adsense-application/</loc><lastmod>2026-05-27</lastmod></url>
+  <url><loc>/posts/insert-images/</loc><lastmod>2026-05-28</lastmod></url>
+  <url><loc>/posts/hello-world/</loc><lastmod>2026-05-28</lastmod></url>
+  <url><loc>/tags/AI/</loc></url>
+  <url><loc>/tags/ClaudeCode/</loc></url>
+  <url><loc>/tags/Cloudflare/</loc></url>
+  <url><loc>/tags/Flask/</loc></url>
+  <url><loc>/tags/Obsidian/</loc></url>
+  <url><loc>/tags/はじめに/</loc></url>
+  <url><loc>/tags/セットアップ/</loc></url>
+  <url><loc>/tags/デプロイ/</loc></url>
+  <url><loc>/tags/ブログ/</loc></url>
+  <url><loc>/tags/収益化/</loc></url>
+  <url><loc>/tags/執筆/</loc></url>
+  <url><loc>/tags/技術/</loc></url>
+  <url><loc>/tags/構成/</loc></url>
+  <url><loc>/tags/運営/</loc></url>
+  <url><loc>/search/</loc></url>
+</urlset>
