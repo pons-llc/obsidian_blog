@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% block title %}{{ post.title }}{% endblock %}
+{% block meta_description %}{{ post.summary }}{% endblock %}
+{% block og_title %}{{ post.title }}{% endblock %}
+{% block og_description %}{{ post.summary }}{% endblock %}
+{% block og_type %}article{% endblock %}
+{% block og_image %}
+{% if config.SITE_URL %}
+<meta property="og:image" content="{{ config.SITE_URL }}/static/ogp/{{ post.slug }}.png">
+<meta property="og:url" content="{{ config.SITE_URL }}/posts/{{ post.slug }}/">
+<meta name="twitter:image" content="{{ config.SITE_URL }}/static/ogp/{{ post.slug }}.png">
+{% endif %}
+{% endblock %}
+{% block content %}
+<article>
+    <header>
+        <h1>{{ post.title }}</h1>
+        {% if post.date %}<time datetime="{{ post.date }}">{{ post.date.strftime('%Y-%m-%d') }}</time>{% endif %}
+        {% if post.tags %}
+        <div class="tags">
+            {% for tag in post.tags %}
+            <a href="{{ url_for('tag', tag=tag) }}" class="tag">{{ tag }}</a>
+            {% endfor %}
+        </div>
+        {% endif %}
+    </header>
+    <div class="content">{{ post.content }}</div>
+    <footer>
+        <a href="{{ url_for('index') }}">← 一覧に戻る</a>
+    </footer>
+</article>
+{% endblock %}

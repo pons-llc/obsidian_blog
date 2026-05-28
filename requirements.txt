@@ -1,0 +1,5 @@
+Flask>=3.0.0
+Frozen-Flask>=1.0.0
+python-frontmatter>=1.1.0
+Markdown>=3.5.0
+Pillow>=10.0.0

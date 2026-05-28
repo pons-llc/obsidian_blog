@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block title %}タグ: {{ tag }}{% endblock %}
+{% block content %}
+<h1>タグ: {{ tag }}</h1>
+<ul class="post-list">
+    {% for post in posts %}
+    <li class="post-item">
+        <a href="{{ url_for('post', slug=post.slug) }}">{{ post.title }}</a>
+        {% if post.date %}<time>{{ post.date.strftime('%Y-%m-%d') }}</time>{% endif %}
+    </li>
+    {% endfor %}
+</ul>
+<p><a href="{{ url_for('index') }}">← 一覧に戻る</a></p>
+{% endblock %}

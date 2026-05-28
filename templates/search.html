@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block title %}検索 — {{ config.SITE_NAME }}{% endblock %}
+{% block content %}
+<div id="search-app" data-index-url="{{ url_for('search_index') }}">
+    <h1>検索</h1>
+    <div class="search-form">
+        <input type="text" id="search-input" placeholder="キーワードを入力..." autofocus>
+        <button id="search-button">検索</button>
+    </div>
+    <p id="search-status"></p>
+    <div id="search-results"></div>
+</div>
+<script src="{{ url_for('static', filename='js/search.js') }}"></script>
+{% endblock %}
