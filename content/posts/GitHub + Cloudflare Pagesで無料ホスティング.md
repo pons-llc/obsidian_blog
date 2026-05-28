@@ -1,4 +1,5 @@
 ---
+order: 5
 title: GitHub + Cloudflare Pagesで無料ホスティング
 slug: free-hosting-cloudflare-pages
 date: 2026-05-24

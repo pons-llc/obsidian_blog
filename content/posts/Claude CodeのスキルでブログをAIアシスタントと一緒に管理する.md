@@ -1,4 +1,5 @@
 ---
+order: 4
 title: Claude CodeのスキルでブログをAIアシスタントと一緒に管理する
 slug: claude-code-skills-for-blog
 date: 2026-05-19

@@ -1,4 +1,5 @@
 ---
+order: 3
 title: Flask-Frozenが静的サイト生成に意外と向いている
 slug: frozen-flask-static-generation
 date: 2026-05-13

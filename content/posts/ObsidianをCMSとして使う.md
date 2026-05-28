@@ -1,4 +1,5 @@
 ---
+order: 2
 title: ObsidianをCMSとして使う
 slug: obsidian-as-cms
 date: 2026-05-08
@@ -16,6 +17,8 @@ draft: false
 各記事のフロントマター（タイトル・日付・タグ・下書きフラグ）はObsidianのプロパティパネルで編集できる。YAMLを手書きしなくていい。
 
 `draft: true` にするだけで記事が非公開になる。書きかけの記事をObsidian上で普通に管理しておける。
+
+![Obsidianのプロパティパネルと記事一覧](/assets/obsidian_content_image.png)
 
 ## テンプレートで書き出しを揃える
 
@@ -39,6 +42,8 @@ draft: false
 記事内で `[[別の記事]]` と書くとグラフビューに繋がりが表示される。書いているうちに「この記事とこの記事は同じテーマを扱っている」という気づきが生まれる。
 
 実際のHTMLリンクには通常の `[テキスト](../slug/)` を使うが、Obsidian上での整理にwikilinkを使い、書き終わったら正式なリンクに変換する、というフローが自分にはあっている。
+
+![Obsidianのグラフビュー。記事間のwikiリンクが可視化されている](/assets/obsidian_graph_image.png)
 
 ## ローカルで完結する安心感
 

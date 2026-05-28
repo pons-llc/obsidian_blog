@@ -1,3 +1,4 @@
+import glob
 import os
 
 from flask_frozen import Freezer
@@ -16,6 +17,15 @@ freezer = Freezer(app)
 def post():
     for p in get_posts():
         yield {'slug': p['slug']}
+
+
+@freezer.register_generator
+def assets():
+    assets_dir = os.path.join('content', 'assets')
+    if os.path.isdir(assets_dir):
+        for fp in glob.glob(os.path.join(assets_dir, '**', '*'), recursive=True):
+            if os.path.isfile(fp):
+                yield {'filename': os.path.relpath(fp, assets_dir)}
 
 
 @freezer.register_generator

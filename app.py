@@ -5,7 +5,7 @@ from datetime import date
 
 import frontmatter
 import markdown as md
-from flask import Flask, Response, jsonify, render_template
+from flask import Flask, Response, jsonify, render_template, send_from_directory
 from markupsafe import Markup
 
 app = Flask(__name__)
@@ -56,6 +56,7 @@ def load_post(filepath):
         'tags': post.get('tags', []),
         'summary': post.get('summary', ''),
         'draft': post.get('draft', False),
+        'order': post.get('order', None),
         'content': Markup(md.markdown(convert_wikilinks(post.content, _get_slug_map()), extensions=['fenced_code', 'tables', 'toc']))
     }
 
@@ -66,7 +67,10 @@ def get_posts(include_drafts=False):
         p = load_post(filepath)
         if not p['draft'] or include_drafts:
             posts.append(p)
-    return sorted(posts, key=lambda p: p['date'] or date.min, reverse=True)
+    return sorted(posts, key=lambda p: (
+        p['order'] if p['order'] is not None else 9999,
+        -(p['date'].toordinal() if p['date'] else 0)
+    ))
 
 
 @app.route('/')
@@ -74,12 +78,26 @@ def index():
     return render_template('index.html', posts=get_posts())
 
 
+def find_post_filepath(slug):
+    for fp in glob.glob(os.path.join(POSTS_DIR, '*.md')):
+        p = frontmatter.load(fp)
+        fn = os.path.splitext(os.path.basename(fp))[0]
+        if p.get('slug', fn) == slug:
+            return fp
+    return None
+
+
 @app.route('/posts/<slug>/')
 def post(slug):
-    filepath = os.path.join(POSTS_DIR, f'{slug}.md')
-    if not os.path.exists(filepath):
+    filepath = find_post_filepath(slug)
+    if filepath is None:
         return 'Not found', 404
     return render_template('post.html', post=load_post(filepath))
+
+
+@app.route('/assets/<path:filename>')
+def assets(filename):
+    return send_from_directory(os.path.join(os.path.dirname(__file__), 'content', 'assets'), filename)
 
 
 @app.route('/sitemap.xml')

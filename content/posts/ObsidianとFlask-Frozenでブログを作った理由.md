@@ -1,4 +1,5 @@
 ---
+order: 1
 title: ObsidianとFlask-Frozenでブログを作った理由
 slug: why-obsidian-flask-blog
 date: 2026-05-01
